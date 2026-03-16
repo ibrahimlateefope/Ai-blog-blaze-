@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlazeBlog</title>
+  <meta name="description" content="Fresh AI-generated articles on tech, science, lifestyle & more.">
+  <meta name="theme-color" content="#14b8a6">
+  <meta property="og:title" content="BlazeBlog">
+  <meta property="og:description" content="Fresh AI-generated articles powered by Grok.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="logo.jpg">
+<link rel="shortcut icon" href="logo.jpg">
+</head>
+<body>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+          <img src="logo.jpg" alt="Logo"> BlazeBlog</a>
+      <div class="nav-links">
+        <span id="postCount" class="post-count" aria-live="polite"></span>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <svg id="sunIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <svg id="moonIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" role="banner">
+    <p class="hero-eyebrow">AI 😂 Autoblog</p>
+    <h1 class="hero-title">Stories that <em>matter</em></h1>
+    <p class="hero-sub">AI-curated insights on tech, science, culture &amp; growth — fresh every day.</p>
+  </header>
+
+  <nav class="topics-bar" aria-label="Filter by topic">
+    <div class="topics-inner">
+      <button class="topic-btn active" data-topic="all">All</button>
+      <button class="topic-btn" data-topic="technology">Technology</button>
+      <button class="topic-btn" data-topic="science">Science</button>
+      <button class="topic-btn" data-topic="lifestyle">Lifestyle</button>
+      <button class="topic-btn" data-topic="health">Health</button>
+      <button class="topic-btn" data-topic="business">Business</button>
+      <button class="topic-btn" data-topic="ai">AI &amp; Future</button>
+    </div>
+  </nav>
+
+  <main class="main-container" id="mainContent" role="main">
+    <div class="loading-state" id="loadingState">
+      <div class="spinner" role="status"></div>
+      <p>Loading stories…</p>
+    </div>
+    <div class="empty-state hidden" id="emptyState">
+      <div class="empty-icon" aria-hidden="true">✍️</div>
+      <h2>No stories yet</h2>
+    </div>
+    <section class="featured-section hidden" id="featuredSection" aria-label="Featured story">
+      <div id="featuredPost"></div>
+    </section>
+    <section aria-label="All stories">
+      <div class="posts-grid" id="postsGrid"></div>
+    </section>
+  </main>
+
+  <div class="post-modal" id="postModal" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-content" id="modalContent">
+      <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+      <article class="modal-article" id="modalArticle"></article>
+    </div>
+  </div>
+
+  <footer class="footer" role="contentinfo">
+  &copy;2026 Ibrahimlateefope
+  </footer>
+
+  <div class="toast" id="toast" role="alert" aria-live="assertive"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script type="module" src="script.js"></script>
+</body>
+</html>

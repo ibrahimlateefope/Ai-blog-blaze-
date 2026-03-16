@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlazeBlog — Admin</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="logo.jpg">
+<link rel="shortcut icon" href="logo.jpg">
+</head>
+<body class="admin-body">
+
+  <div class="login-page" id="loginPage">
+    <div class="login-card">
+      <p class="login-logo">🔥 BlazeBlog</p>
+      <p class="login-subtitle">Sign in to your admin panel</p>
+      <form class="login-form" id="loginForm" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="emailInput">Email address</label>
+          <input class="form-input" type="email" id="emailInput" placeholder="you@example.com" autocomplete="email" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="passwordInput">Password</label>
+          <input class="form-input" type="password" id="passwordInput" placeholder="••••••••" autocomplete="current-password" required>
+        </div>
+        <button class="btn-primary" type="submit" id="loginBtn">Sign In</button>
+        <p class="login-error" id="loginError" role="alert"></p>
+      </form>
+      <a href="index.html" class="login-back">← Back to blog</a>
+    </div>
+  </div>
+
+  <div id="dashboard" class="hidden">
+
+    <nav class="admin-nav" role="navigation">
+      <span class="admin-nav-logo">
+        🔥 BlazeBlog
+        <span class="admin-badge">Admin</span>
+      </span>
+      <div class="admin-nav-right">
+        <span class="admin-user-email" id="adminEmail"></span>
+        <button class="btn-ghost" id="viewBlogBtn"><a href="index.html" target="_blank">View Blog</a></button>
+        <button class="btn-ghost" id="logoutBtn">Sign Out</button>
+      </div>
+    </nav>
+
+    <main class="admin-main" role="main">
+
+      <div class="generate-card">
+        <div class="generate-header">
+          <h1 class="generate-title">✦ Generate New Post</h1>
+          <p class="generate-subtitle">Grok will write a full blog post + fetch real images from Unsplash automatically.</p>
+        </div>
+
+        <div class="gen-row">
+          <input
+            class="form-input"
+            type="text"
+            id="topicInput"
+            placeholder="Topic (e.g. 'The future of quantum computing') — leave blank for AI to decide"
+            aria-label="Blog post topic"
+          >
+          <button class="generate-btn" id="generateBtn" aria-label="Generate blog post">
+            <span class="btn-icon" aria-hidden="true">✦</span>
+            <div class="btn-spinner" aria-hidden="true"></div>
+            <span class="btn-text">Generate Post</span>
+          </button>
+        </div>
+
+        <div class="gen-row-2">
+          <div>
+            <label class="form-label" for="categorySelect">Category</label>
+            <select class="form-select" id="categorySelect" aria-label="Select category">
+              <option value="technology">Technology</option>
+              <option value="ai">AI &amp; Future</option>
+              <option value="science">Science</option>
+              <option value="lifestyle">Lifestyle</option>
+              <option value="health">Health</option>
+              <option value="business">Business</option>
+            </select>
+          </div>
+          <div>
+            <label class="form-label" for="toneSelect">Tone</label>
+            <select class="form-select" id="toneSelect" aria-label="Select writing tone">
+              <option value="informative and engaging">Informative &amp; Engaging</option>
+              <option value="conversational and witty">Conversational &amp; Witty</option>
+              <option value="professional and authoritative">Professional &amp; Authoritative</option>
+              <option value="inspiring and motivational">Inspiring &amp; Motivational</option>
+              <option value="simple and beginner-friendly">Simple &amp; Beginner-Friendly</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="progress-log" id="progressLog" aria-live="polite" aria-label="Generation progress"></div>
+      </div>
+
+      <div>
+        <div class="admin-posts-header">
+          <h2 class="admin-posts-title">Published Posts</h2>
+          <span class="admin-posts-count" id="adminPostsCount" aria-live="polite"></span>
+        </div>
+        <div id="adminPostsList">
+          <p class="admin-empty">Loading posts…</p>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="alert" aria-live="assertive"></div>
+
+  <script type="module" src="admin.js"></script>
+</body>
+</html>
